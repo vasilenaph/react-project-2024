@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 // Example car object for demonstration purposes
 const car = {
@@ -9,6 +9,9 @@ const car = {
 };
 
 export default function CarDetails() {
+
+
+
     return (
         <div className=" mt-20 bg-gray-100 min-h-screen py-4 px-2 sm:px-4 lg:px-6">
             <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-4">

@@ -1,4 +1,5 @@
-
+import { useEffect, useState } from 'react';
+import * as carsAPI from '../../api/cars-api' 
 
 // Sample data
 const products = [
@@ -23,6 +24,16 @@ const products = [
 ];
 
 export default function CarList() {
+    const [games, setGames] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const carsResult = carsAPI.getAll();
+
+            setGames(carsResult);
+            console.log(carsResult);
+        })();
+    }, []);
 
     return (
         <div className="bg-white">
