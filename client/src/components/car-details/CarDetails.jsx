@@ -1,17 +1,20 @@
+import { useEffect, useState } from "react";
 
+import { useParams } from "react-router-dom";
 
-// Example car object for demonstration purposes
-const car = {
-    carName: "Opel",
-    model: "Astra",
-    year: "1980",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsjQg74gJGEq4BHxinLeK5Z_-p5VXeBFRCWg&s",
-    description: "This is an example description of the car. It includes details about the car's features, history, and other relevant information.",
-};
+import carsAPI from "../../api/cars-api";
 
 export default function CarDetails() {
+    const [car, setCar] = useState({});
+    const {gameId} = useParams();
 
+    useEffect(() => {
+        (async () => {
+            const result = await carsAPI.getOne(gameId);
 
+            setCar(result);
+        })();
+    }, []);
 
     return (
         <div className=" mt-20 bg-gray-100 min-h-screen py-4 px-2 sm:px-4 lg:px-6">
@@ -30,6 +33,7 @@ export default function CarDetails() {
                 <p className="text-md text-gray-700 mt-1">Year: {car.year}</p>
                 <p className="text-md text-gray-700 mt-1">Description:</p>
                 <p className="text-base text-gray-600 mt-1">{car.description}</p>
+
                 <div className="mt-6 flex justify-end space-x-4">
                     <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                         Edit

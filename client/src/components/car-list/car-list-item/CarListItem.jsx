@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CarListItem({
     _id,
     carName,
@@ -20,11 +22,11 @@ export default function CarListItem({
                     </a>
                 </h3>
                 <div className="mt-4">
-                    <a href={`/cars/${_id}/details`}
+                    <Link to={`/cars/${_id}/details`}
                         className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
                         Details
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
