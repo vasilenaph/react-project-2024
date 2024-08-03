@@ -2,9 +2,10 @@
 
 // Example car object for demonstration purposes
 const car = {
-    imageUrl: "https://www.topgear.com/sites/default/files/2021/08/DSC03713.jpg",
-    model: "Example Car Model",
-    year: "2024",
+    carName: "Opel",
+    model: "Astra",
+    year: "1980",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsjQg74gJGEq4BHxinLeK5Z_-p5VXeBFRCWg&s",
     description: "This is an example description of the car. It includes details about the car's features, history, and other relevant information.",
 };
 
@@ -21,7 +22,7 @@ export default function CarDetails() {
                 <div className="flex justify-center mb-4">
                     <img
                         src={car.imageUrl}
-                        alt={car.model}
+                        alt={car.carName}
                         className="w-full h-auto object-cover rounded-md"
                     />
                 </div>

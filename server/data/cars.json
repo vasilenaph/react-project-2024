@@ -1,0 +1,20 @@
+{
+    "4a860394-adca-4527-8ac1-bef42e77102a": {
+        "carName": "Ford",
+        "model": "Mustang",
+        "color": "blue",
+        "year": "1965",
+        "imageUrl": "https://ecdautodesign.com/wp-content/uploads/2024/04/classic-mustang-blue-hero.jpg",
+        "description": "The first-generation Ford Mustang was manufactured by Ford from March 1964 until 1973. The introduction of the Mustang created a new class of automobiles known as pony cars. The Mustang's styling, with its long hood and short deck, proved wildly popular and inspired a host of competition.",
+        "_id": "4a860394-adca-4527-8ac1-bef42e77102a"
+    },
+    "2b8fa7ed-9c52-4818-8fc1-c059a094cb23": {
+        "carName": "Aston Martin",
+        "model": "DB5",
+        "color": "Lightblue",
+        "year": "1963",
+        "imageUrl": "https://www.auto-press.net/gallery/article/images_big/gallery_picture_0268818001694759608.jpg",
+        "description": "The engine was a 290bhp 4.0 litre inline six-cylinder with three SU carburettors, mated to a five-speed ZF manual transmission, and the cars were finished in the same Silver Birch colour scheme as the original. The Goldfinger DB5s were created in association with the producers of the James Bond films, EON Productions.",
+        "_id": "2b8fa7ed-9c52-4818-8fc1-c059a094cb23"
+    }
+}
