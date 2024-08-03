@@ -1,5 +1,4 @@
 export default function Home() {
-
     return (
         <div className="bg-white">
             <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -16,7 +15,6 @@ export default function Home() {
                     />
                 </div>
                 <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-
                     <div className="text-center">
                         <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                             Discover classic and vintage cars in our React web app.
@@ -50,6 +48,88 @@ export default function Home() {
                     />
                 </div>
             </div>
+
+            <div className="w-full bg-gradient-to-r from-gray-50 via-gray-100 to-gray-200 py-16 sm:py-24">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="bg-white rounded-lg shadow-lg p-8">
+                        <h2 className="text-2xl font-bold tracking-tight text-gray-900 text-center mb-8">Latest Cars</h2>
+
+                        <div className="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                            <div className="group relative border border-gray-300 rounded-md p-4 bg-white">
+                                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                                    <img
+                                        src="https://ecdautodesign.com/wp-content/uploads/2024/04/classic-mustang-blue-hero.jpg"
+                                        alt="Ford Mustang"
+                                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                    />
+                                </div>
+                                <div className="mt-4 flex flex-col items-center justify-between text-center">
+                                    <div>
+                                        <h3 className="text-sm text-gray-700 font-bold">Ford Mustang</h3>
+                                        <p className="mt-1 text-sm text-gray-500">Year: 1965</p>
+                                    </div>
+                                    <div className="mt-4 flex">
+                                        <a
+                                            href="#"
+                                            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                        >
+                                            Details
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="group relative border border-gray-300 rounded-md p-4 bg-white">
+                                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                                    <img
+                                        src="https://www.supercars.net/blog/wp-content/uploads/2016/04/1963-Chevrolet-Corvette-Stingray-1000x671.jpg"
+                                        alt="Chevrolet Corvette"
+                                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                    />
+                                </div>
+                                <div className="mt-4 flex flex-col items-center justify-between text-center">
+                                    <div>
+                                        <h3 className="text-sm text-gray-700 font-bold">Chevrolet Corvette</h3>
+                                        <p className="mt-1 text-sm text-gray-500">Year: 1963</p>
+                                    </div>
+                                    <div className="mt-4 flex">
+                                        <a
+                                            href="#"
+                                            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                        >
+                                            Details
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="group relative border border-gray-300 rounded-md p-4 bg-white">
+                                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                                    <img
+                                        src="https://www.porsche.com/bilder/modelle/911/991/911-carrera-s/galerie/motorsport/porsche-991.jpg"
+                                        alt="Porsche 911"
+                                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                    />
+                                </div>
+                                <div className="mt-4 flex flex-col items-center justify-between text-center">
+                                    <div>
+                                        <h3 className="text-sm text-gray-700 font-bold">Porsche 911</h3>
+                                        <p className="mt-1 text-sm text-gray-500">Year: 1970</p>
+                                    </div>
+                                    <div className="mt-4 flex">
+                                        <a
+                                            href="#"
+                                            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                        >
+                                            Details
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    )
+    );
 }

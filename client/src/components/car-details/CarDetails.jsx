@@ -6,11 +6,11 @@ import carsAPI from "../../api/cars-api";
 
 export default function CarDetails() {
     const [car, setCar] = useState({});
-    const {gameId} = useParams();
+    const { carId } = useParams();
 
     useEffect(() => {
         (async () => {
-            const result = await carsAPI.getOne(gameId);
+            const result = await carsAPI.getOne(carId);
 
             setCar(result);
         })();
@@ -22,17 +22,27 @@ export default function CarDetails() {
                 <button className="mb-2 text-gray-500 hover:text-gray-700 text-sm">
                     &larr; Back to List
                 </button>
+                <h1 className="mb-3 text-2xl font-bold mt-2 text-center">{car.carName} {car.model}</h1>
                 <div className="flex justify-center mb-4">
                     <img
                         src={car.imageUrl}
-                        alt={car.carName}
+                        // alt={car.carName}
                         className="w-full h-auto object-cover rounded-md"
                     />
                 </div>
-                <h2 className="text-2xl font-bold mt-2">{car.model}</h2>
-                <p className="text-md text-gray-700 mt-1">Year: {car.year}</p>
-                <p className="text-md text-gray-700 mt-1">Description:</p>
-                <p className="text-base text-gray-600 mt-1">{car.description}</p>
+
+                <p className="text-md text-gray-700 mt-1">
+                    <span className="font-bold">Color:</span> {car.color}
+                </p>
+                <p className="text-md text-gray-700 mt-1">
+                    <span className="font-bold">MaxSpeed:</span> {car.maxSpeed}
+                </p>
+                <p className="text-md text-gray-700 mt-1">
+                    <span className="font-bold">Year:</span> {car.year}
+                </p>
+                <p className="text-md text-gray-700 mt-1">
+                    <span className="font-bold">Description:</span> {car.description}
+                </p>
 
                 <div className="mt-6 flex justify-end space-x-4">
                     <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
