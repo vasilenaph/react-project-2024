@@ -4,6 +4,7 @@ export default function CarListItem({
     _id,
     carName,
     model,
+    year,
     imageUrl,
 }) {
     return (
@@ -11,7 +12,6 @@ export default function CarListItem({
             <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
                 <img
                     src={imageUrl}
-                    alt={`${carName} ${model}`}
                     className="h-full w-full object-cover object-center"
                 />
             </div>
@@ -20,6 +20,7 @@ export default function CarListItem({
                     <a href={`/cars/${_id}/details`}>
                         {carName} {model}
                     </a>
+                    <p className="mt-1 text-sm text-gray-500">Year: {year}</p>
                 </h3>
                 <div className="mt-4">
                     <Link to={`/cars/${_id}/details`}

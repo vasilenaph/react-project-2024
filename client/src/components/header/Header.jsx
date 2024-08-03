@@ -15,10 +15,10 @@ export default function Header() {
                 <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
                     <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Your Company</span>
+                            <span className="sr-only">OldSchoolAuto</span>
                             <img
-                                alt=""
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                alt="OldSchoolAuto"
+                                src="https://p7.hiclipart.com/preview/416/601/141/vintage-car-classic-car-antique-car-classic-car.jpg"
                                 className="h-8 w-auto"
                             />
                         </a>
@@ -45,7 +45,7 @@ export default function Header() {
                             Login <span aria-hidden="true">&rarr;</span>
                         </Link>
 
-                        <Link to="/register" className="text-sm font-semibold leading-6 text-gray-900">
+                        <Link to="/register" className="ml-2 text-sm font-semibold leading-6 text-gray-900">
                             Register <span aria-hidden="true">&rarr;</span>
                         </Link>
                     </div>
