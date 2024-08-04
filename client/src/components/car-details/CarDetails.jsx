@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useParams } from "react-router-dom";
 
-import commentsApi from "../../api/comments-api";
+import commentsAPI from "../../api/comments-api";
 
 import { useGetOneCars } from "../../hooks/useCars";
 
@@ -12,11 +12,11 @@ export default function CarDetails() {
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
 
-    
+
     const commentSubmitHandler = async (e) => {
         e.preventDefault();
 
-        const newComment = await commentsApi.create(carId, username, comment);
+        const newComment = await commentsAPI.create(carId, username, comment);
 
         // TODO: Refactore this later
         setCar(prevState => ({
@@ -46,16 +46,16 @@ export default function CarDetails() {
                     />
                 </div>
 
-                <p className="text-md text-gray-700 mt-1">
+                <p className="text-md text-gray-700 mt-2">
                     <span className="font-bold">Color:</span> {car.color}
                 </p>
-                <p className="text-md text-gray-700 mt-1">
+                <p className="text-md text-gray-700 mt-2">
                     <span className="font-bold">MaxSpeed:</span> {car.maxSpeed}
                 </p>
-                <p className="text-md text-gray-700 mt-1">
+                <p className="text-md text-gray-700 mt-2">
                     <span className="font-bold">Year:</span> {car.year}
                 </p>
-                <p className="text-md text-gray-700 mt-1">
+                <p className="text-md text-gray-700 mt-2">
                     <span className="font-bold">Description:</span> {car.description}
                 </p>
 

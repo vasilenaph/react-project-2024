@@ -1,11 +1,29 @@
-
+import { useNavigate } from "react-router-dom";
+import { useLogin } from "../../hooks/useAuth";
+import { useForm } from "../../hooks/useForm";
 
 export default function Login() {
+    const login = useLogin();
+    const navigate = useNavigate();
+
+    const { values, changeHandler, submitHandler } = useForm(
+        { email: '', password: '' },
+        async ({ email, password }) => {
+            try {
+                await login(email, password)
+                navigate('/');
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+    );
+
+
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-md rounded-lg">
                 <h2 className="text-2xl font-bold text-center">Login</h2>
-                <form className="space-y-4">
+                <form className="space-y-7" onSubmit={submitHandler}>
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                             Email address
@@ -14,7 +32,8 @@ export default function Login() {
                             id="email"
                             name="email"
                             type="email"
-                            autoComplete="email"
+                            value={values.email}
+                            onChange={changeHandler}
                             required
                             className="w-full px-3 py-2 mt-1 border rounded-md shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         />
@@ -27,29 +46,13 @@ export default function Login() {
                             id="password"
                             name="password"
                             type="password"
-                            autoComplete="current-password"
+                            value={values.password}
+                            onChange={changeHandler}
                             required
                             className="w-full px-3 py-2 mt-1 border rounded-md shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         />
                     </div>
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <input
-                                id="remember_me"
-                                name="remember_me"
-                                type="checkbox"
-                                className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                            />
-                            <label htmlFor="remember_me" className="block ml-2 text-sm text-gray-900">
-                                Remember me
-                            </label>
-                        </div>
-                        <div className="text-sm">
-                            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                Forgot your password?
-                            </a>
-                        </div>
-                    </div>
+
                     <div>
                         <button
                             type="submit"
