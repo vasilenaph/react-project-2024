@@ -16,12 +16,12 @@ export default function CarListItem({
                 />
             </div>
             <div className="mt-4 text-center">
-                <h3 className="text-sm text-gray-700">
+                <h3 className="text-lg font-semibold text-gray-700">
                     <a href={`/cars/${_id}/details`}>
                         {carName} {model}
                     </a>
-                    <p className="mt-1 text-sm text-gray-500">Year: {year}</p>
                 </h3>
+                <p className="mt-1 text-sm text-gray-500">Year: {year}</p>
                 <div className="mt-4">
                     <Link to={`/cars/${_id}/details`}
                         className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
