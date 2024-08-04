@@ -4,14 +4,15 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./components/home/Home"
 import Header from "./components/header/Header"
 import CarList from "./components/car-list/CarList"
-import Login from "./components/login/Login"
-import Register from "./components/register/Register"
+import Login from "./components/login/Login" 
+import Register from "./components/register/Register" 
 import CarCreate from "./components/car-create/CarCreate"
 import About from "./components/about/About"
 import CarDetails from "./components/car-details/CarDetails"
 import { AuthContext } from "./contexts/AuthContext"
 
 function App() {
+    // TODO: Remove this from App Component
     const [authState, setAuthState] = useState({});
 
     const changeAuthState = (state) => {
@@ -19,6 +20,7 @@ function App() {
     }
 
     const contextData = {
+        userId: authState._id,
         email: authState.email,
         accessToken: authState.accessToken,
         isAuthenticated: !!authState.email,
