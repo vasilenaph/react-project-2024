@@ -1,19 +1,9 @@
-import { useEffect, useState } from 'react';
-
-import * as carsAPI from '../../api/cars-api'
+import { useGetAllCars } from '../../hooks/useCars';
 
 import CarListItem from './car-list-item/CarListItem';
 
 export default function CarList() {
-    const [cars, setCars] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            const result = await carsAPI.getAll();
-
-            setCars(result);
-        })();
-    }, []);
+    const [cars] = useGetAllCars();
 
     return (
         <div className="bg-white">
