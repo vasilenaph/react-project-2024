@@ -45,11 +45,11 @@ export default function Header() {
                             Logout <span aria-hidden="true">&rarr;</span>
                         </Link>
 
-                        <Link to="/login" className="ml-2 text-sm font-semibold leading-6 text-gray-900">
+                        <Link to="/login" className="ml-3 text-sm font-semibold leading-6 text-gray-900">
                             Login <span aria-hidden="true">&rarr;</span>
                         </Link>
 
-                        <Link to="/register" className="ml-2 text-sm font-semibold leading-6 text-gray-900">
+                        <Link to="/register" className="ml-3 text-sm font-semibold leading-6 text-gray-900">
                             Register <span aria-hidden="true">&rarr;</span>
                         </Link>
                     </div>
