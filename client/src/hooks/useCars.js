@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import carsAPI from "../api/cars-api";
-import { useParams } from "react-router-dom";
 
 export function useGetAllCars() {
     const [cars, setCars] = useState([]);
@@ -28,5 +27,10 @@ export function useGetOneCars(carId) {
     }, [carId]);
 
     return [car, setCar];
+}
 
+export function useCreateCar() {
+    const carCreateHandler = (carData) => carsAPI.create(carData);
+
+    return carCreateHandler;
 }
