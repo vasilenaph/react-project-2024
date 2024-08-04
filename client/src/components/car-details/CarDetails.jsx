@@ -1,24 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useParams } from "react-router-dom";
 
-import carsAPI from "../../api/cars-api";
 import commentsApi from "../../api/comments-api";
 
+import { useGetOneCars } from "../../hooks/useCars";
+
 export default function CarDetails() {
-    const [car, setCar] = useState({});
+    const { carId } = useParams();
+    const [car, setCar] = useGetOneCars(carId);
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
-    const { carId } = useParams();
 
-    useEffect(() => {
-        (async () => {
-            const result = await carsAPI.getOne(carId);
-
-            setCar(result);
-        })();
-    }, []);
-
+    
     const commentSubmitHandler = async (e) => {
         e.preventDefault();
 
