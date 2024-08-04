@@ -14,14 +14,14 @@ export default function Header() {
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
                     <div className="flex lg:flex-1">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <Link to='/' className="-m-1.5 p-1.5">
                             <span className="sr-only">OldSchoolAuto</span>
                             <img
                                 alt="OldSchoolAuto"
-                                src="https://p7.hiclipart.com/preview/416/601/141/vintage-car-classic-car-antique-car-classic-car.jpg"
-                                className="h-8 w-auto"
+                                src="logo.png"
+                                className="h-20 w-auto"
                             />
-                        </a>
+                        </Link>
                     </div>
                     <div className="flex lg:hidden">
                         <button
@@ -42,6 +42,10 @@ export default function Header() {
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <Link to="/login" className="text-sm font-semibold leading-6 text-gray-900">
+                            Logout <span aria-hidden="true">&rarr;</span>
+                        </Link>
+
+                        <Link to="/login" className="ml-2 text-sm font-semibold leading-6 text-gray-900">
                             Login <span aria-hidden="true">&rarr;</span>
                         </Link>
 
