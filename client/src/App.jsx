@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
 
 import Home from "./components/home/Home"
@@ -8,25 +9,40 @@ import Register from "./components/register/Register"
 import CarCreate from "./components/car-create/CarCreate"
 import About from "./components/about/About"
 import CarDetails from "./components/car-details/CarDetails"
+import { AuthContext } from "./contexts/AuthContext"
 
 function App() {
+    const [authState, setAuthState] = useState({});
+
+    const changeAuthState = (state) => {
+        setAuthState(state);
+    }
+
+    const contextData = {
+        email: authState.email,
+        accessToken: authState.accessToken,
+        isAuthenticated: !!authState.email,
+        changeAuthState
+    }
 
     return (
-        <div id="box">
-            <Header />
+        <AuthContext.Provider value={contextData}>
+            <div id="box">
+                <Header />
 
-            <main id="main-content">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/cars" element={<CarList />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/cars/create" element={<CarCreate />} />
-                    <Route path="/cars/:carId/details" element={<CarDetails />} />
-                </Routes>
-            </main>
-        </div>
+                <main id="main-content">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/cars" element={<CarList />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/cars/create" element={<CarCreate />} />
+                        <Route path="/cars/:carId/details" element={<CarDetails />} />
+                    </Routes>
+                </main>
+            </div>
+        </AuthContext.Provider>
     )
 }
 

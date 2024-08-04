@@ -2,22 +2,29 @@ import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 
+const initialValues = {
+    email: '',
+    password: ''
+}
+
 export default function Login() {
     const login = useLogin();
     const navigate = useNavigate();
 
-    const { values, changeHandler, submitHandler } = useForm(
-        { email: '', password: '' },
-        async ({ email, password }) => {
-            try {
-                await login(email, password)
-                navigate('/');
-            } catch (error) {
-                console.log(error.message);
-            }
+    const loginHandler = async ({ email, password }) => {
+        try {
+            await login(email, password);
+            navigate('/');
+        } catch (error) {
+            console.log(error.message);
         }
-    );
+    };
 
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialValues, loginHandler);
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -52,13 +59,12 @@ export default function Login() {
                             className="w-full px-3 py-2 mt-1 border rounded-md shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         />
                     </div>
-
                     <div>
                         <button
                             type="submit"
                             className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
-                            Sign in
+                            Login
                         </button>
                     </div>
                 </form>
