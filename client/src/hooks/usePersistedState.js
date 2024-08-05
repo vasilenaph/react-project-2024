@@ -6,8 +6,8 @@ export default function usePersitedState(key, initialState) {
 
         if (!persistedAuth) {
             return typeof initialState === 'function'
-            ? initialState()
-            : initialState
+                ? initialState()
+                : initialState
         }
 
         const authData = JSON.parse(persistedAuth);
@@ -18,11 +18,13 @@ export default function usePersitedState(key, initialState) {
     const updateState = (value) => {
 
         const newState = typeof value === 'function'
-        ? value(state)
-        : value
+            ? value(state)
+            : value
 
-        localStorage.setItem(key, JSON.stringify(newState));
-        
+        if (newState != null && newState !== undefined) {
+            localStorage.setItem(key, JSON.stringify(newState));
+        }
+
         setState(value);
     }
 

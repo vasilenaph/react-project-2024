@@ -1,15 +1,16 @@
-import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
+
+import { AuthContextProvider } from "./contexts/AuthContext"
 
 import Home from "./components/home/Home"
 import Header from "./components/header/Header"
 import CarList from "./components/car-list/CarList"
 import Login from "./components/login/Login" 
 import Register from "./components/register/Register" 
+import Logout from "./components/logout/Logout" 
 import CarCreate from "./components/car-create/CarCreate"
 import About from "./components/about/About"
 import CarDetails from "./components/car-details/CarDetails"
-import { AuthContextProvider } from "./contexts/AuthContext"
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                         <Route path="/about" element={<About />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="/cars/create" element={<CarCreate />} />
                         <Route path="/cars/:carId/details" element={<CarDetails />} />
                     </Routes>
