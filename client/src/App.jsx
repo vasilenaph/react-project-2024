@@ -9,29 +9,12 @@ import Register from "./components/register/Register"
 import CarCreate from "./components/car-create/CarCreate"
 import About from "./components/about/About"
 import CarDetails from "./components/car-details/CarDetails"
-import { AuthContext } from "./contexts/AuthContext"
+import { AuthContextProvider } from "./contexts/AuthContext"
 
 function App() {
-    // TODO: Remove this from App Component
-    const [authState, setAuthState] = useState({});
-
-    const changeAuthState = (state) => {
-        // TODO: Quick solution, fix by implementing persisted authState 
-        localStorage.setItem('accessToken', state.accessToken)
-
-        setAuthState(state);
-    }
-
-    const contextData = {
-        userId: authState._id,
-        email: authState.email,
-        accessToken: authState.accessToken,
-        isAuthenticated: !!authState.email,
-        changeAuthState
-    }
 
     return (
-        <AuthContext.Provider value={contextData}>
+        <AuthContextProvider>
             <div id="box">
                 <Header />
 
@@ -47,7 +30,7 @@ function App() {
                     </Routes>
                 </main>
             </div>
-        </AuthContext.Provider>
+        </AuthContextProvider>
     )
 }
 

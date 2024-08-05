@@ -1,10 +1,9 @@
 import { Bars3Icon } from '@heroicons/react/24/outline';
-import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 export default function Header() {
-    const { isAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated } = useAuthContext();
 
     return (
         <header className="absolute inset-x-0 top-0 z-50">
