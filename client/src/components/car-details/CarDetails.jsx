@@ -10,8 +10,9 @@ const initialValues = {
 
 export default function CarDetails() {
     const { carId } = useParams();
-    const [comments, setComments] = useGetAllComments(carId);
+    const [comments, dispatch] = useGetAllComments(carId);
     const createComment = useCreateComment();
+    const { email } = useAuthContext();
     const [car] = useGetOneCars(carId);
     const { isAuthenticated } = useAuthContext();
 
@@ -20,15 +21,14 @@ export default function CarDetails() {
         changeHandler,
         submitHandler,
     } = useForm(initialValues, async ({ comment }) => {
-
         try {
             const newComment = await createComment(carId, comment);
 
-            setComments(oldComments => [...oldComments, newComment]);
+            // setComments(oldComments => [...oldComments, newComment]);
+            dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } })
         } catch (error) {
             console.log(error.message);
-        }   
-
+        }
     });
 
     return (
@@ -77,6 +77,7 @@ export default function CarDetails() {
                                 className="mt-2 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 rows="4"
                                 name="comment"
+                                required
                                 placeholder="Write a comment..."
                                 value={values.comment}
                                 onChange={changeHandler}
@@ -94,8 +95,9 @@ export default function CarDetails() {
                         {
                             comments.map(comment => (
                                 <div key={comment._id} className="p-2 bg-gray-100 rounded-md">
-                                    <p className="font-bold text-sm text-gray-800">username: </p>
-                                    <p className="mt-1 text-sm text-gray-800">{comment.text}</p>
+                                    <p className="font-bold text-sm text-gray-800">
+                                        {comment.author.email}: {comment.text}
+                                    </p>
                                 </div>))
                         }
 
@@ -104,7 +106,6 @@ export default function CarDetails() {
                             <h2 className="font-bold mt-1 text-xl text-gray-800">No comments</h2>
                         }
 
-                        {/* Add more comments here */}
                     </div>
                 </div>
             </div>

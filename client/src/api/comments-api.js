@@ -6,8 +6,10 @@ export const create = (carId, text) => requester.post(BASE_URL, { carId, text })
 
 export const getAll = (carId) =>{
     const params = new URLSearchParams({
-        where: `carId="${carId}"`
+        where: `carId="${carId}"`,
+        load: `author=_ownerId:users`,
     });
+    
     return requester.get(`${BASE_URL}?${params.toString()}`);
 }
 
