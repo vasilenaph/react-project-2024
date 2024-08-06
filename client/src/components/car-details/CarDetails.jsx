@@ -1,14 +1,16 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useGetOneCars } from "../../hooks/useCars";
 import { useForm } from "../../hooks/useForm";
 import { useCreateComment, useGetAllComments } from "../../hooks/useComment";
 import { useAuthContext } from "../../contexts/AuthContext";
+import carsAPI from "../../api/cars-api";
 
 const initialValues = {
     comment: '',
 }
 
 export default function CarDetails() {
+    const navigate = useNavigate();
     const { carId } = useParams();
     const [comments, dispatch] = useGetAllComments(carId);
     const createComment = useCreateComment();
@@ -30,6 +32,16 @@ export default function CarDetails() {
             console.log(error.message);
         }
     });
+
+    const carDeleteHandler = async () => {
+        try {
+            await carsAPI.remove(carId);
+
+            navigate('/cars');            
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const isOwner = userId === car._ownerId;
 
@@ -66,7 +78,7 @@ export default function CarDetails() {
                         <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                             Edit
                         </button>
-                        <button className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+                        <button onClick={carDeleteHandler} className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
                             Delete
                         </button>
                     </div>}

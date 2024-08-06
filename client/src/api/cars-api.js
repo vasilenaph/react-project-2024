@@ -12,12 +12,15 @@ export const getAll = async () => {
 
 export const getOne = (cardId) => request.get(`${BASE_URL}/${cardId}`);
 
-export const create = (carData) => request.post(`${BASE_URL}`, carData)
+export const create = (carData) => request.post(`${BASE_URL}`, carData);
+
+export const remove = (carId) => request.del(`${BASE_URL}/${carId}`);
 
 const carsAPI = {
     getAll,
     getOne,
     create,
+    remove,
 }
 
 export default carsAPI;
