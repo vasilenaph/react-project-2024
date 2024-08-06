@@ -18,8 +18,8 @@ export default function CarCreate() {
 
     const createHandler = async (values) => {
         try {
-            const {_id: gameId} = await createCar(values);
-            navigate(`/cars/${gameId}/details`);
+            const {_id: carId} = await createCar(values);
+            navigate(`/cars/${carId}/details`);
         } catch (error) {
             // TODO: Set error state and display error
             console.log(error);

@@ -1,9 +1,14 @@
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
+import withAuth from '../../HOC/withAuth';
 
-export default function Header() {
-    const { isAuthenticated } = useAuthContext();
+function Header({
+    auth
+}) {
+
+    // const { isAuthenticated } = useAuthContext();
+    const {isAuthenticated} = auth;
 
     return (
         <header className="absolute inset-x-0 top-0 z-50">
@@ -64,3 +69,7 @@ export default function Header() {
         </header>
     );
 }
+
+
+const EnhancedHeader = withAuth(Header)
+export default EnhancedHeader;

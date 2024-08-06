@@ -9,7 +9,7 @@ export default function Home() {
 
     useEffect(() => {
         (async () => {
-            // TODO: fetch only latest games
+            // TODO: fetch only latest cars
             const result = await carsAPI.getAll();
 
             setLatestCars(result.reverse().slice(0, 3));

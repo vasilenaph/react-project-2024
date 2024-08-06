@@ -1,35 +1,27 @@
-import { useState } from "react";
-
 import { useParams } from "react-router-dom";
-
-import commentsAPI from "../../api/comments-api";
-
 import { useGetOneCars } from "../../hooks/useCars";
+import { useForm } from "../../hooks/useForm";
+import { useCreateComment, useGetAllComments } from "../../hooks/useComment";
+import { useAuthContext } from "../../contexts/AuthContext";
+
+const initialValues = {
+    comment: '',
+}
 
 export default function CarDetails() {
     const { carId } = useParams();
-    const [car, setCar] = useGetOneCars(carId);
-    const [username, setUsername] = useState('');
-    const [comment, setComment] = useState('');
+    const [comments, setComments] = useGetAllComments(carId);
+    const createComment = useCreateComment();
+    const [car] = useGetOneCars(carId);
+    const { isAuthenticated } = useAuthContext();
 
-
-    const commentSubmitHandler = async (e) => {
-        e.preventDefault();
-
-        const newComment = await commentsAPI.create(carId, username, comment);
-
-        // TODO: Refactore this later
-        setCar(prevState => ({
-            ...prevState,
-            comments: {
-                ...prevState.comments,
-                [newComment._id]: newComment,
-            }
-        }));
-
-        setUsername('');
-        setComment('');
-    }
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialValues, ({ comment }) => {
+        createComment(carId, comment);
+    });
 
     return (
         <div className=" mt-20 bg-gray-100 min-h-screen py-4 px-2 sm:px-4 lg:px-6">
@@ -71,36 +63,37 @@ export default function CarDetails() {
                 {/* Comment Section */}
                 <div className="mt-8">
                     <h3 className="text-xl font-semibold text-gray-900">Comments</h3>
-                    <form className="mt-4" onSubmit={commentSubmitHandler}>
-                        <input
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            placeholder="Pesho"
-                            onChange={(e) => setUsername(e.target.value)}
-                            value={username}
-                        />
-                        <textarea
-                            className="mt-2 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            rows="4"
-                            placeholder="Write a comment..."
-                            onChange={(e) => setComment(e.target.value)}
-                            value={comment}
-                        />
-                        <button
-                            type="submit"
-                            className="mt-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
-                        >
-                            Add Comment
-                        </button>
-                    </form>
+                    {isAuthenticated &&
+                        <form className="mt" onSubmit={submitHandler}>
+                            <textarea
+                                className="mt-2 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                rows="4"
+                                name="comment"
+                                placeholder="Write a comment..."
+                                value={values.comment}
+                                onChange={changeHandler}
+                            />
+                            <button
+                                type="submit"
+                                className="mt-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                            >
+                                Add Comment
+                            </button>
+                        </form>
+                    }
                     {/* Existing comments will go here */}
                     <div className="mt-4 space-y-4">
-                        {Object.keys(car.comments || {}).length > 0
-                            ? Object.values(car.comments).map(comment => (
+                        {
+                            comments.map(comment => (
                                 <div key={comment._id} className="p-2 bg-gray-100 rounded-md">
-                                    <p className="font-bold text-sm text-gray-800">{comment.username}:</p>
+                                    <p className="font-bold text-sm text-gray-800">username:</p>
                                     <p className="mt-1 text-sm text-gray-800">{comment.text}</p>
                                 </div>))
-                            : <h2 className="font-bold mt-1 text-xl text-gray-800">No comments</h2>
+                        }
+
+                        {
+                            comments.length === 0 &&
+                            <h2 className="font-bold mt-1 text-xl text-gray-800">No comments</h2>
                         }
 
                         {/* Add more comments here */}
