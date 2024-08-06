@@ -12,7 +12,7 @@ export default function CarDetails() {
     const { carId } = useParams();
     const [comments, dispatch] = useGetAllComments(carId);
     const createComment = useCreateComment();
-    const { email } = useAuthContext();
+    const { email, userId } = useAuthContext();
     const [car] = useGetOneCars(carId);
     const { isAuthenticated } = useAuthContext();
 
@@ -30,6 +30,8 @@ export default function CarDetails() {
             console.log(error.message);
         }
     });
+
+    const isOwner = userId === car._ownerId;
 
     return (
         <div className=" mt-20 bg-gray-100 min-h-screen py-4 px-2 sm:px-4 lg:px-6">
@@ -59,14 +61,15 @@ export default function CarDetails() {
                     <span className="font-bold">Description:</span> {car.description}
                 </p>
 
-                <div className="mt-6 flex justify-end space-x-4">
-                    <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-                        Edit
-                    </button>
-                    <button className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
-                        Delete
-                    </button>
-                </div>
+                {isOwner &&
+                    <div className="mt-6 flex justify-end space-x-4">
+                        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                            Edit
+                        </button>
+                        <button className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+                            Delete
+                        </button>
+                    </div>}
 
                 {/* Comment Section */}
                 <div className="mt-8">
