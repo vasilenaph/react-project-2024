@@ -19,8 +19,16 @@ export default function CarDetails() {
         values,
         changeHandler,
         submitHandler,
-    } = useForm(initialValues, ({ comment }) => {
-        createComment(carId, comment);
+    } = useForm(initialValues, async ({ comment }) => {
+
+        try {
+            const newComment = await createComment(carId, comment);
+
+            setComments(oldComments => [...oldComments, newComment]);
+        } catch (error) {
+            console.log(error.message);
+        }   
+
     });
 
     return (
@@ -86,7 +94,7 @@ export default function CarDetails() {
                         {
                             comments.map(comment => (
                                 <div key={comment._id} className="p-2 bg-gray-100 rounded-md">
-                                    <p className="font-bold text-sm text-gray-800">username:</p>
+                                    <p className="font-bold text-sm text-gray-800">username: </p>
                                     <p className="mt-1 text-sm text-gray-800">{comment.text}</p>
                                 </div>))
                         }
