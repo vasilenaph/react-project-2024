@@ -3,15 +3,17 @@ import { useEffect, useState } from "react";
 import carsAPI from "../../api/cars-api";
 
 import LatestCar from "./latest-car/LatestCar";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     const [latestCars, setLatestCars] = useState([]);
 
     useEffect(() => {
         (async () => {
-            const result = await carsAPI.getLatest();
+            // TODO: fetch only latest games
+            const result = await carsAPI.getAll();
 
-            setLatestCars(result);
+            setLatestCars(result.reverse().slice(0, 3));
         })();
     }, [])
 
@@ -39,15 +41,12 @@ export default function Home() {
                             Each listing offers detailed info, high-quality images, and historical backgrounds of timeless automotive icons. Explore, admire, and appreciate these beautifully preserved vehicles.
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
-                            <a
-                                href="#"
+                            <Link
+                                to={"/cars"}
                                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
                                 Get started
-                            </a>
-                            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                Learn more <span aria-hidden="true">→</span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

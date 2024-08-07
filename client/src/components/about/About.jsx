@@ -1,55 +1,52 @@
 export default function About() {
     return (
-        <div className="bg-white">
-            <div className="relative isolate px-6 pt-14 lg:px-8">
-                <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-                >
-                    <div
-                        style={{
-                            clipPath:
-                                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                        }}
-                        className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                    />
-                </div>
-                <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-                    <div className="text-center">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                            About Our Classic Cars Collection
-                        </h1>
-                        <p className="mt-6 text-lg leading-8 text-gray-600">
-                            Our platform is dedicated to car enthusiasts who cherish the legacy of classic and vintage cars.
-                            Dive into our extensive collection, discover the stories behind each vehicle, and connect with a community
-                            of fellow admirers of timeless automotive beauty.
-                        </p>
-                        <div className="mt-10 flex items-center justify-center gap-x-6">
-                            <a
-                                href="#"
-                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                            >
-                                Get Started
-                            </a>
-                            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                Learn More <span aria-hidden="true">→</span>
-                            </a>
+        <div className="mt-20 bg-gray-100 min-h-screen py-4 px-2 sm:px-4 lg:px-6">
+            <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-4">
+                <h1 className="mb-3 text-2xl font-bold text-center">About Our Project</h1>
+                <p className="text-md text-gray-700 mt-2">
+                    Welcome to our car catalog application! This project is designed to help users explore a variety of cars, view detailed information about each car, and leave comments or feedback.
+                </p>
+                <p className="text-md text-gray-700 mt-2">
+                    Our goal is to create a user-friendly platform where car enthusiasts can easily find information about different car models, including their specifications and user reviews.
+                </p>
+                <p className="text-md text-gray-700 mt-2">
+                    This project was developed using React for the front-end, with a custom API serving the data. We aimed to implement best practices in both coding and UI design to provide a seamless and enjoyable user experience.
+                </p>
+                <p className="text-md text-gray-700 mt-2">
+                    We hope you find this application useful and engaging. If you have any questions or feedback, feel free to reach out to us!
+                </p>
+
+                <h2 className="mt-6 text-xl font-semibold text-gray-900">Our Team</h2>
+                <div className="mt-4">
+                    <div className="flex items-center space-x-4 mb-4">
+                        <img src="https://powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-13.png" alt="Team Member 1" className="w-16 h-16 object-cover rounded-full" />
+                        <div>
+                            <p className="text-md text-gray-700"><span className="font-bold">Developer:</span> Alex Smith</p>
+                            <p className="text-md text-gray-700">Lead developer and project coordinator.</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center space-x-4 mb-4">
+                        <img src="https://aboutleaders.com/wp-content/uploads/2022/01/Transformation-Leaderhip-Traits.jpg" className="w-16 h-16 object-cover rounded-full" />
+                        <div>
+                            <p className="text-md text-gray-700"><span className="font-bold">Designer:</span> John Doe</p>
+                            <p className="text-md text-gray-700">Responsible for the visual design and user experience.</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center space-x-4 mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHibIe4cZzr__jX69NIoo5uIygxSUylfmPZ_Db5PCU2YMLSltq_R0yMBMYa9IjARK6L-w&usqp=CAU" alt="Team Member 3" className="w-16 h-16 object-cover rounded-full" />
+                        <div>
+                            <p className="text-md text-gray-700"><span className="font-bold">Project Manager:</span> Mike Johnson</p>
+                            <p className="text-md text-gray-700">Oversees project timelines and ensures milestones are met.</p>
                         </div>
                     </div>
                 </div>
-                <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-                >
-                    <div
-                        style={{
-                            clipPath:
-                                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                        }}
-                        className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-                    />
-                </div>
+
+                <p className="text-md text-gray-700 mt-2">
+                    Thank you for visiting our project!
+                </p>
             </div>
         </div>
     );
 }
+
+;
