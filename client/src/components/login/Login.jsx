@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useLogin } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
+import { useState } from "react";
 
 const initialValues = {
     email: '',
@@ -8,6 +9,7 @@ const initialValues = {
 }
 
 export default function Login() {
+    const [error, setError] = useState();
     const login = useLogin();
     const navigate = useNavigate();
 
@@ -16,7 +18,7 @@ export default function Login() {
             await login(email, password);
             navigate('/');
         } catch (error) {
-            console.log(error.message);
+            setError(error.message);
         }
     };
 
@@ -58,6 +60,13 @@ export default function Login() {
                             required
                             className="w-full px-3 py-2 mt-1 border rounded-md shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         />
+                        {
+                            error && (
+                                <p style={{ color: 'red' }} className="ml-1 text-sm text-gray-600">
+                                    <span>{error}</span>
+                                </p>
+                            )
+                        }
                     </div>
                     <div>
                         <button

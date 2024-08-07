@@ -54,9 +54,6 @@ export default function CarDetails() {
     return (
         <div className=" mt-20 bg-gray-100 min-h-screen py-4 px-2 sm:px-4 lg:px-6">
             <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-4">
-                <button className="mb-2 text-gray-500 hover:text-gray-700 text-sm">
-                    &larr; Back to List
-                </button>
                 <h1 className="mb-3 text-2xl font-bold mt-2 text-center">{car.carName} {car.model}</h1>
                 <div className="flex justify-center mb-4">
                     <img
@@ -91,7 +88,7 @@ export default function CarDetails() {
 
                 {/* Comment Section */}
                 <div className="mt-8">
-                    <h3 className="text-xl font-semibold text-gray-900">Comments</h3>
+                    <h3 className="text-xl font-bold text-gray-900">Comments: </h3>
                     {isAuthenticated &&
                         <form className="mt" onSubmit={submitHandler}>
                             <textarea

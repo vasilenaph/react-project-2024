@@ -13,6 +13,7 @@ import About from "./components/about/About"
 import CarDetails from "./components/car-details/CarDetails"
 import CarEdit from "./components/car-edit/CarEdit"
 import PrivateGuard from "./components/common/PrivateGuard"
+import NotFound from "./components/not-found/NotFound"
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
                             <Route path="/cars/:carId/edit" element={<CarEdit />} />
                             <Route path="/logout" element={<Logout />} />
                         </Route>
+                        <Route path="/*" element={<NotFound />} />
                         {/* <Route path="/cars/create" element={(
                         <PrivateGuard>
                             <CarCreate />
