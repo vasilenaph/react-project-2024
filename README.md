@@ -29,7 +29,7 @@ Here are some screenshots of the ClassicOldCars application:
 ![Home Page](client/assets/home.png)
 
 ### Latest Cars
-![Latest Cars](client/assets/latestcars.png)
+![Latest Cars](client/assets/latestCars.png)
 
 ### All Cars
 ![All Cars](client/assets/allCars.png)
