@@ -9,10 +9,9 @@ export default function Home() {
 
     useEffect(() => {
         (async () => {
-            // TODO: fetch only latest cars
-            const result = await carsAPI.getAll();
+            const result = await carsAPI.getLatest();
 
-            setLatestCars(result.reverse().slice(0, 3));
+            setLatestCars(result);
         })();
     }, [])
 

@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useGetOneCars } from "../../hooks/useCars";
 import { useForm } from "../../hooks/useForm";
 import { useCreateComment, useGetAllComments } from "../../hooks/useComment";
@@ -34,10 +34,16 @@ export default function CarDetails() {
     });
 
     const carDeleteHandler = async () => {
+        const isConfirmed = confirm(`Are you sure you want to delete ${car.carName} car?`);
+
+        if (!isConfirmed) {
+            return;
+        }
+
         try {
             await carsAPI.remove(carId);
 
-            navigate('/cars');            
+            navigate('/cars');
         } catch (error) {
             console.log(error);
         }
@@ -75,9 +81,9 @@ export default function CarDetails() {
 
                 {isOwner &&
                     <div className="mt-6 flex justify-end space-x-4">
-                        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                        <Link to={`/cars/${carId}/edit`} className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                             Edit
-                        </button>
+                        </Link>
                         <button onClick={carDeleteHandler} className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
                             Delete
                         </button>

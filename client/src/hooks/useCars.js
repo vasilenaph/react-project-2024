@@ -16,7 +16,15 @@ export function useGetAllCars() {
 }
 
 export function useGetOneCars(carId) {
-    const [car, setCar] = useState({});
+    const [car, setCar] = useState({
+        carName: '',
+        model: '',
+        color: '',
+        maxSpeed: '',
+        year: '',
+        imageUrl: '',
+        description: '',
+    });
 
     useEffect(() => {
         (async () => {

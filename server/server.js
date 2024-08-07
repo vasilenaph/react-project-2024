@@ -1388,7 +1388,16 @@
                 "_createdOn": 1722956884823,
                 "_id": "6b2ff13d-a5aa-47a9-a548-bbdf06ab0972"
             }
-        }
+        },
+        comments: [
+            {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "carId": "2ae3fcaa-e159-4b37-8a2a-c3ceeb745fd4",
+                "text": "amazing!",
+                "_createdOn": 1723040926343,
+                "_id": "a651dc20-d393-4786-ba36-00d080e7a630"
+            }
+        ]
     };
     var rules$1 = {
         users: {

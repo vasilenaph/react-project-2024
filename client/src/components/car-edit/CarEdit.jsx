@@ -1,41 +1,30 @@
-import { useNavigate } from "react-router-dom";
-import { useCreateCar } from "../../hooks/useCars";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
+import { useGetOneCars } from "../../hooks/useCars";
+import carsAPI from "../../api/cars-api";
 
-const initialValues = {
-    carName: '',
-    model: '',
-    color: '',
-    maxSpeed: '',
-    year: '',
-    imageUrl: '',
-    description: '',
-}
-
-export default function CarCreate() {
+export default function CarEdit() {
     const navigate = useNavigate();
-    const createCar = useCreateCar();
-
-    const createHandler = async (values) => {
-        try {
-            const { _id: carId } = await createCar(values);
-            navigate(`/cars/${carId}/details`);
-        } catch (error) {
-            // TODO: Set error state and display error
-            console.log(error);
-        }
-    }
-
+    const { carId } = useParams();
+    const [car] = useGetOneCars(carId);
     const {
         values,
         changeHandler,
-        submitHandler
-    } = useForm(initialValues, createHandler);
+        submitHandler,
+    } = useForm(car, async (values) => {
+        const isConfirmed = confirm('Are you sure you want to edit this car?');
+
+        if (isConfirmed) {
+            await carsAPI.update(carId, values);
+
+            navigate(`/cars/${carId}/details`);
+        }
+    }, true);
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 pt-16">
             <div className="w-full max-w-sm p-6 space-y-4 bg-white shadow-md rounded-lg">
-                <h2 className="text-xl font-bold text-center">Add Classic Car</h2>
+                <h2 className="text-xl font-bold text-center">Edit Classic Car</h2>
                 <form className="space-y-3" onSubmit={submitHandler}>
                     <div>
                         <label htmlFor="carName" className="block text-sm font-medium text-gray-700">
@@ -139,7 +128,7 @@ export default function CarCreate() {
                             type="submit"
                             className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
-                            Add Car
+                            Save Changes
                         </button>
                     </div>
                 </form>
