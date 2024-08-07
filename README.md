@@ -1,4 +1,4 @@
-# ClassicOldCars project
+# ClassicOldCars React Project
 
 ### A React-based application that allows users to manage and view car information, including adding, editing, and viewing comments on individual cars. The application also supports user authentication with login, registration, and logout functionalities.
 
