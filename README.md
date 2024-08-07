@@ -26,28 +26,28 @@
 Here are some screenshots of the ClassicOldCars application:
 
 ### Home Page
-![Home Page](client\assets\home.png)
+![Home Page](client/assets/home.png)
 
 ### Latest Cars
-![Latest Cars](client\assets\latestcars.png)
+![Latest Cars](client/assets/latestcars.png)
 
 ### All Cars
-![All Cars](client\assets\allCars.png)
+![All Cars](client/assets/allCars.png)
 
 ### Create Car
 ![Create Car](client/assets/createCar.png)
 
 ### Edit Car
-![Edit Car](client\assets\editCar.png)
+![Edit Car](client/assets/editCar.png)
 
 ### About Page
-![About Page](client\assets\about.png)
+![About Page](client/assets/about.png)
 
 ### Login Page
-![Login Page](client\assets\loginForm.png)
+![Login Page](client/assets/loginForm.png)
 
 ### Register Page
-![Register Page](client\assets\registerForm.png)
+![Register Page](client/assets/registerForm.png)
 
 ### Installation
 
