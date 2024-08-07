@@ -35,7 +35,7 @@ Here are some screenshots of the ClassicOldCars application:
 ![All Cars](client\assets\allCars.png)
 
 ### Create Car
-![Create Car](client\assets\createCar.png)
+![Create Car](assets\createCar.png)
 
 ### Edit Car
 ![Edit Car](client\assets\editCar.png)
